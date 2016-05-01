@@ -1,0 +1,170 @@
+MAY 1st 2016
+
+I've created a project specification page at
+https://docs.moodle.org/30/en/tool_pluginkenobi. The page should have been
+located in the development documentation (moodle.org/dev/) but it seems that
+I don't have the permissions to create the page. Once that gets sorted out
+I'll move the page contents to https://moodle.org/dev/tool_pluginkenobi.
+
+Below are the initial project specifications, based mostly on my project
+proposal for GSoC. There will be modifications as I receive feedback from my
+mentor, David, and the Moodle community.
+
+
+    Problem description
+
+Moodle is the most widely used learning platform and is entirely open  source,
+allowing everyone to freely modify and share their modifications. For this
+purpose Moodle has created the Moodle plugins directory where
+users can share their code with the entire community.
+
+There is a wide variety of plugins that can be downloaded and installed from
+the plugins directory. To help maintaining a large number of plugins they have
+been split into different types. Each category imposes a set of rules on
+the plugin: the name and install location, the name of the classes and
+functions are all expected to follow a certain format; there are
+functionalities that should be implemented in a specific file that has
+the same role across plugin types. Regardless of type, each plugin is required
+to implement mandatory files (like version.php or a language string
+file). All files need to follow a specific format and adhere to the
+Moodle coding guidelines. Each plugin uses the Moodle core APIs in a
+specific way. Furthermore, there are code patterns and techniques that all
+plugins have in common. Moodle contributors need to be aware of all these
+conventions and for developing plugins they use the guides from the Moodle
+developer documentation and draw inspiration from existing plugins.
+
+
+    Project summary
+
+The project’s aim is to make developing plugins a much easier task. Based on
+coding techniques used by existing plugins, on the guides and specifications
+found in the Moodle developer documentation, as well as on the user’s input,
+the tool will generate skeleton code that can will be used to build the
+plugin.
+
+The developer will be able to specify the plugin type, name, features that
+will be implemented, details about the web interface and the CLI scripts and
+other plugin meta-data (like dependencies, author and copyright holder,
+version, stability level, and so on) the needed files will be generated, in
+the appropriate format and in accordance with the Moodle coding guidelines.
+The generator will
+use a set of template files unique for each plugin type and will support the
+ability to keep reference documentation for the each of the template files.
+
+
+    Project details and implementation
+
+There are already code generators for moodle, like the moosh generate commands
+(http://http://moosh-online.com/) or the newmodule plugin
+(https://github.com/moodlehq/moodle-mod_newmodule), but their scope is limited
+to a very specific area of moodle. I plan to  build on the above software and
+greatly expand their functionality to be able to generate code for the available
+plugin types (https://docs.moodle.org/dev/Plugin_types).
+
+The user will be able to interact with the plugin via a web interface located
+at Administration > Site administration > Plugins > Plugin generator and a
+command-line script located in the admin/tool/pluginkenobi/cli directory.
+
+The web interface will consist of one main page where the user will be able to
+specify the plugin type and settings common to all plugins (like name, author,
+whether or not it will implement a web interface or a command-line script),
+followed by several web pages, each detailing one of the selected features or
+settings of the plugin. The second to last page will be a summary of all the
+options chosen by the user,  asking him or her to confirm the settings, and on
+the final page the user will be presented with a set of links to the available
+documentation for the plugin type chosen, as well as general developer
+documentation (like the Moodle coding guidelines at
+https://docs.moodle.org/dev/Coding or the plugin contribution checklist at
+https://docs.moodle.org/dev/Plugin_contribution_checklist).
+
+The command-line script will follow a syntax similar to the moosh generate
+commands, like for example:
+
+  generate activity-modules <list of options>
+
+for generating skeleton code for an activity module plugin.
+
+The templates used for generating the scaffold code will be located in a
+templates directory, each in a subdirectory with named after the plugin type
+they pertain to, except for templates used by all plugins (like the templates
+for generating a web form) which will be directly located in the templates
+directory without having their own subdirectory.
+
+These templates will be used by generator classes following the same directory
+hierarchy. A templating language will be used to manipulate the template
+files. Each plugin type will have its own configuration file specifying what
+generator classes it uses and the available options for each generator class.
+
+The creation of the plugin will involve the following steps:
+
+1. Create a list of all the features, settings and files that all plugins are
+expected to implement. This will be accomplished by reading the available
+Moodle documentation at https://docs.moodle.org/dev/Plugin_contribution,
+https://docs.moodle.org/dev/Plugin_contribution_checklist and
+https://docs.moodle.org/dev/Plugin_files.
+
+2. Create a list of all the features, settings and files that each plugin type
+is expected to implement. This will be accomplished by reading the Moodle
+documentation of each plugin type from the
+https://docs.moodle.org/dev/Plugin_types web page.
+
+3. Identify shared characteristics between plugin types.
+
+4. Create the class hierarchy for the code generators.
+
+5. Examine existing plugins for implementation details of their functionality.
+
+6. Choose a template format and a templating language. I am currently
+considering twig (http://twig.sensiolabs.org/) and mustache
+(http://mustache.github.io/).
+
+7. Create templates and configuration files for existing plugin types.
+
+8. Create the web interface. This will serve as a guideline for how the classes
+will interact with each other and the general flow of the plugin code
+generation. Behat tests will also be implemented as functionality is expanded.
+
+9. Create the generator classes. PHPUnit tests will be implemented as the
+classes evolve.
+
+10. Create the plugin's command-line interface.
+
+11. Write documentation for the plugin in the Moodle docs.
+
+
+    Project schedule
+
+May 9th - Finish the preliminary plugin specifications and introduce the
+project to the Moodle community.
+
+May 22nd - Create a draft of the class hierarchy used by the plugin.
+
+June 10th - Research and analysis of existing code generators for Moodle
+plugins.
+
+June 13th - Finalize the class hierarchy of the plugin.
+
+June 16th - Choose a template and configuration format and a templating
+language.
+
+June 19th - Materialize the findings from the previous phases into
+configuration files and templates for the plugin types.
+
+June 22nd - Create a basic web interface for the plugin.
+
+June 23rd - Create basic Behat acceptance tests for the above interface.
+
+June 30th - Implement the necessary code to create a template for one type
+of plugin. PHPUnit tests will also be implemented.
+
+July 28th - All generator classes should be implemented by now, as well as
+associated PHPUnit tests.
+
+July 31st - Create the CLI scripts for the plugin.
+
+August 14th - Write the documentation for the plugin.
+
+
+Note: The official GSoC coding period ends on August 23rd. I have reserved the
+last week of coding for various delays. As we all know, when coding there will
+always be bugs.
