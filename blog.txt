@@ -1,3 +1,16 @@
+MAY 4th 2016
+
+Moved the spec page to https://docs.moodle.org/dev/tool_pluginkenobi.
+
+I've updated the spec page with a screenshot of a muckup of the main plugin
+web page.
+
+The source code for the project is located at
+https://github.com/alexandru-elisei/tool_pluginkenobi.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 MAY 1st 2016
 
 I've created a project specification page at
