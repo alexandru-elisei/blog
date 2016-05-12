@@ -1,3 +1,21 @@
+MAY 12th 2016
+
+I've added the option to create the plugin from a recipe. This should prove
+very useful in automating plugin creation and testing.
+
+The spec was presented to the regular Moodle developers in the forums, but no
+feedback yet. I've also taken part (as an observer) in a Moodle developer
+meeting, I liked it, there were some interesting project presentations.
+
+As for my own progress, I've started work on examining the documentation for
+the different plugin types. I'm making a spreadsheet with what is required for
+each plugin type, this should help me organize the vast amount of information
+(and sometimes vague) available. I've decided to add the spreadsheet to this
+repo. People who are interested in the project can leave their comments, and
+this way I also have a backup.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 MAY 4th 2016
 
 Moved the spec page to https://docs.moodle.org/dev/tool_pluginkenobi.
