@@ -1,3 +1,23 @@
+
+MAY 23rd 2016
+
+This is the first day of the official coding period.
+
+I've read all the documentation for the available plugin types, and based on
+it I have a list of the template files needed.
+
+I've also found templates for the popular plugins, I've started analyzing the
+templates for the Activity modules plugin type. This type is so popular that
+there are two different plugin templates, this seems like a good candidate for
+the first complete plugin type to generate.
+
+I will decide when I will implement the generation of 'mod' plugins after I
+have gone through the rest of the existing templates and I'll examine the code
+of other plugins.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 MAY 12th 2016
 
 I've added the option to create the plugin from a recipe. This should prove
