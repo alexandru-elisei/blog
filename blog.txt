@@ -1,3 +1,16 @@
+MAY 31st 2016
+
+I've analyzed a few of the existing templates for generating plugins, they are
+in accordance with the official Moodle documenantation, I will use some of
+their template files.
+
+I've also implemented all the classes to create a demo plugin type and the CLI
+script to generate the plugin from the recipe file.
+
+I am quite pleased with how the plugin is looking at this point.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MAY 23rd 2016
 
