@@ -1,3 +1,16 @@
+June 10th 2016
+
+Finished analyzing the available plugin generators for Moodle, the results are
+on the spec page.
+
+Started coding the actual generators that will be used for plugin generators,
+things are progressing quite nicely. Making the base class for all generators
+as generic as possible has helped me greatly, when creating new generator
+classes I can focus on the characteristics of each plugin type instead of how
+the templates will be manipulated to create the files.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 MAY 31st 2016
 
 I've analyzed a few of the existing templates for generating plugins, they are
